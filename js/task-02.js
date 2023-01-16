@@ -1,17 +1,19 @@
-
 const ingredients = [
-  'Potatoes',
-  'Mushrooms',
-  'Garlic',
-  'Tomatos',
-  'Herbs',
-  'Condiments',
+  "Potatoes",
+  "Mushrooms",
+  "Garlic",
+  "Tomatos",
+  "Herbs",
+  "Condiments",
 ];
 
-const listEl = document.getElementById('ingredients');
-const ingredient = ingredients.map((element) => `<li><p class="item"><p/>${element}</li>`).join("");
-listEl.insertAdjacentHTML('afterbegin', ingredient);
-console.log(listEl);
+const list = document.getElementById("ingredients");
 
+const items = ingredients.map(ingredient => {
+  const item = document.createElement("li");
+  item.textContent = ingredient;
+  item.classList.add("item");
+  return item;
+});
 
-
+list.append(...items);
